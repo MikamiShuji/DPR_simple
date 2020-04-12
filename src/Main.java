@@ -26,31 +26,28 @@ public class Main {
     
     public static void main(String[] args) {
 
-        if (getAnswer("Двигатель не заводится?")) {
-            if (getAnswer("Искра есть?")) {
-                if (getAnswer("Неисправна система питания\nБензин есть?")) {
-                    if(getAnswer("Бензин в карбюратор поступает?")) {
-                        System.out.println("Неисправность в карбюраторе");
+        if (getAnswer("Авторизован ли пользователь?")) {
+            if (getAnswer("Есть ли в наличии химикат?")) {
+                if (getAnswer("Относится ли химикат к опасным?")) {
+                    if(getAnswer("Прошёл ли пользователь\nсоответствующую подготовку?")) {
+                        System.out.println("Принять запрос");
+                        return;
+                    } else {
+                        System.out.println("Отклонить запрос");
                         return;
                     }
-                    System.out.println("Неисправность в бензонасосе");
+                } else {
+                    System.out.println("Принять запрос");
                     return;
                 }
-                System.out.println("Необходимо заправиться");
+            } else {
+                System.out.println("Отклонить запрос");
                 return;
             }
-            if (getAnswer("Неисправна система зажигания\nЦепь низкого напряжения функционирует?")) {
-                System.out.println("Неисправность в катушке зажигания");
-                return;
-            }
-            if(getAnswer("Замена комутатора устраняет неисправность?")) {
-                System.out.println("Неисправность в коммутаторе");
-                return;
-            }
-            System.out.println("Неисправность в датчике распределителе");
+        } else {
+            System.out.println("Отклонить запрос");
             return;
         }
-        System.out.println("Машина исправна можно ехать");
 
     }
 }
